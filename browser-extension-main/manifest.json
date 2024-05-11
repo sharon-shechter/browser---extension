@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "AIEverywhere",
+  "version": "1.0",
+  "description": "Enhance English or add comments to code using OpenAI's GPT-3.5-turbo directly in your browser.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*"
+  ]
+}
